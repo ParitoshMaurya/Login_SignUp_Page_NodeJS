@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    -if(flag==0)
+        .alert.alert-success(role='alert') #{popup}
+    -if(flag==1)
+        .alert.alert-danger(role='alert') #{popup}
+    .header
+        a(href="/logout") Log Out
+        
+    .welcome-box
+        h2 #{message}
+        h3 This is home page
+    a(href="/delete") Delete Account
+
+    .update-box
+    h4 To Update Your Details
+    form(action="/update_reg", method="post")
+            .form-group
+                label(for="name") Full Name
+                input(type="text" name="name" class="form-control" width="100")
+            .form-group
+                label(for="Password") New Password
+                input(type="password" name="password" class="form-control" width="100")
+            .form-group
+                label(for="cpassword") Confirm Password
+                input(type="password" name="cpassword" class="form-control" width="100")
+            button(type="submit" class="btn btn-primary") Submit
